@@ -1,0 +1,65 @@
+[
+  {
+    "id": "anticoagulants",
+    "condition_type": "medication_interaction",
+    "medication_keywords": ["warfarina", "acenocumarol", "sintrom", "apixaban", "rivaroxaban", "heparina", "anticoagulante", "dabigatran"],
+    "affected_supplement_slugs": ["omega-3", "vitamin-k2", "nac", "turmeric-curcumin", "vitamin-c"],
+    "action": "hard_block",
+    "message": "Este suplemento puede interactuar con anticoagulantes y alterar el tiempo de coagulación. Consulta a tu médico antes de tomarlo."
+  },
+  {
+    "id": "antidepressants-ssri",
+    "condition_type": "medication_interaction",
+    "medication_keywords": ["fluoxetina", "sertralina", "escitalopram", "paroxetina", "citalopram", "venlafaxina", "antidepresivo"],
+    "affected_supplement_slugs": ["5-htp", "rhodiola-rosea"],
+    "action": "hard_block",
+    "message": "Combinar este suplemento con antidepresivos puede aumentar el riesgo de síndrome serotoninérgico. Consulta a tu médico."
+  },
+  {
+    "id": "maoi",
+    "condition_type": "medication_interaction",
+    "medication_keywords": ["imao", "fenelzina", "tranilcipromina", "selegilina", "inhibidor monoaminooxidasa"],
+    "affected_supplement_slugs": ["5-htp", "rhodiola-rosea", "l-theanine"],
+    "action": "hard_block",
+    "message": "Este suplemento está contraindicado con inhibidores de la MAO. Riesgo de crisis hipertensiva."
+  },
+  {
+    "id": "thyroid-medication",
+    "condition_type": "medication_interaction",
+    "medication_keywords": ["levotiroxina", "eutirox", "tiroxina", "hipotiroidismo", "hipertiroidismo", "tiroides"],
+    "affected_supplement_slugs": ["iron", "zinc", "maca-root", "ashwagandha"],
+    "action": "soft_warning",
+    "message": "Este suplemento puede reducir la absorción de tu medicación tiroidea. Separa las tomas al menos 4 horas y consulta a tu médico."
+  },
+  {
+    "id": "diabetes-medication",
+    "condition_type": "medication_interaction",
+    "medication_keywords": ["metformina", "insulina", "glibenclamida", "glipizida", "sitagliptina", "diabetes", "antidiabetico"],
+    "affected_supplement_slugs": ["berberine", "lions-mane"],
+    "action": "soft_warning",
+    "message": "Este suplemento puede potenciar el efecto hipoglucemiante de tu medicación. Monitoriza tu glucosa y consulta a tu médico."
+  },
+  {
+    "id": "blood-pressure-medication",
+    "condition_type": "medication_interaction",
+    "medication_keywords": ["enalapril", "amlodipino", "losartan", "lisinopril", "atenolol", "ramipril", "antihipertensivo", "tension arterial"],
+    "affected_supplement_slugs": ["coq10", "magnesium-glycinate"],
+    "action": "soft_warning",
+    "message": "Este suplemento puede potenciar el efecto de tu medicación antihipertensiva. Monitoriza tu tensión y consulta a tu médico."
+  },
+  {
+    "id": "iron-hemochromatosis",
+    "condition_type": "contraindication_flag",
+    "symptom_keywords": ["hemocromatosis", "exceso de hierro", "ferritina alta"],
+    "affected_supplement_slugs": ["iron"],
+    "action": "hard_block",
+    "message": "No debes tomar suplementos de hierro si tienes hemocromatosis o niveles elevados de ferritina."
+  },
+  {
+    "id": "general-medication",
+    "condition_type": "general_medication",
+    "description": "Regla por defecto cuando se reporta cualquier medicación no identificada en reglas específicas",
+    "action": "soft_warning",
+    "message": "Estás tomando medicación. Te recomendamos consultar con tu médico o farmacéutico antes de añadir cualquier suplemento a tu rutina."
+  }
+]
