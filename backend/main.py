@@ -1,10 +1,20 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api import auth
+from agent.graph import setup_checkpointer
+from api import auth, questionnaire, recommendations
 from core.config import settings
 
-app = FastAPI(title="Supplement AI API", version="0.1.0")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    setup_checkpointer()
+    yield
+
+
+app = FastAPI(title="Supplement AI API", version="0.1.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -15,6 +25,8 @@ app.add_middleware(
 )
 
 app.include_router(auth.router, prefix="/api")
+app.include_router(questionnaire.router, prefix="/api")
+app.include_router(recommendations.router, prefix="/api")
 
 
 @app.get("/api/health")
