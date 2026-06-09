@@ -59,6 +59,7 @@ export interface Recommendation {
   score: number;
   score_breakdown: Record<string, unknown>;
   safety_flags: string[];
+  llm_explanation: string | null;
 }
 
 export interface RecommendationsResponse {

@@ -24,6 +24,9 @@ export default function Results({ data, onRestart }: { data: RecommendationsResp
             <p className="text-sm text-gray-500">
               {r.category} · evidencia {r.evidence_level} · {r.standard_dose}
             </p>
+            {r.llm_explanation?.trim() && (
+              <p className="mt-2 text-sm italic text-gray-600">{r.llm_explanation}</p>
+            )}
             {r.safety_flags.map((flag, i) => (
               <p key={i} className="mt-2 text-sm text-amber-700">
                 ⚠ {flag}
