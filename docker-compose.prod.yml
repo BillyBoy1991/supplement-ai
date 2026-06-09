@@ -40,9 +40,11 @@ services:
     build:
       context: ./frontend
       target: runner
+      args:
+        NEXT_PUBLIC_API_URL: https://supplement.billytheboy.com/api
     restart: always
-    expose:
-      - "3000"
+    ports:
+      - "127.0.0.1:3000:3000"
     env_file:
       - .env
     environment:
