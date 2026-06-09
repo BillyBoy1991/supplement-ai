@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     jwt_expire_minutes: int = 60
     openrouter_api_key: str
     openrouter_model: str = "mistralai/mistral-7b-instruct:free"
+    openrouter_base_url: str = "https://openrouter.ai/api/v1"
     allowed_origins: str = "http://localhost:3000"
     environment: str = "development"
 
