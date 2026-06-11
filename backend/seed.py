@@ -10,6 +10,7 @@ import uuid
 sys.path.insert(0, os.path.dirname(__file__))
 
 from models.db import SessionLocal, Supplement
+from seed_evidence import seed_evidence
 
 
 def main() -> None:
@@ -43,6 +44,7 @@ def main() -> None:
 
         db.commit()
         print(f"Seed complete: {inserted} inserted, {skipped} already existed.")
+        seed_evidence(db)
     finally:
         db.close()
 

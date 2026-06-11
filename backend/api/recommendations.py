@@ -45,7 +45,7 @@ def get_recommendations(
             if i < 3:
                 if i > 0:
                     time.sleep(0.6)
-                explanation = generate_explanation(result.need_scores, item.supplement, item.breakdown)
+                explanation = generate_explanation(result.need_scores, item.supplement, item.breakdown, db)
             else:
                 explanation = None
             explanations[item.supplement.id] = explanation
