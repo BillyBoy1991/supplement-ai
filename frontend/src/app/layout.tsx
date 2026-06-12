@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     siteName: "Supplement AI",
     images: [
       {
-        url: "https://supplement.billytheboy.com/logo/supplement-ai-logo.svg",
-        width: 400,
-        height: 200,
-        alt: "Supplement AI logo",
+        url: "https://supplement.billytheboy.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Supplement AI",
       },
     ],
     locale: "es_ES",
