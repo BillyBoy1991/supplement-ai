@@ -29,6 +29,22 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Supplement AI",
   description: "Recomendaciones personalizadas de suplementos basadas en evidencia.",
+  openGraph: {
+    title: "Supplement AI",
+    description: "Recomendaciones personalizadas de suplementos basadas en evidencia.",
+    url: "https://supplement.billytheboy.com",
+    siteName: "Supplement AI",
+    images: [
+      {
+        url: "https://supplement.billytheboy.com/logo/supplement-ai-logo.svg",
+        width: 400,
+        height: 200,
+        alt: "Supplement AI logo",
+      },
+    ],
+    locale: "es_ES",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
