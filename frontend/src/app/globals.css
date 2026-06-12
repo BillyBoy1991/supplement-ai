@@ -2,8 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  color: #171717;
-  background: #ffffff;
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+/* Supplement AI — tokens de diseño.
+   Sustituye (o se añade a) src/app/globals.css */
+:root {
+  /* Color — verde casi negro, neutros fríos */
+  --sa-primary: #0e2a23;
+  --sa-primary-deep: #091f1a;
+  --sa-accent: #2e7d5b;
+  --sa-soft: #eef3f1;
+  --sa-ink: #14201c;
+  --sa-muted: #5f6f68;
+  --sa-mist: #f6f8f7;
+  --sa-line: #e3e9e6;
+
+  /* Forma */
+  --sa-radius: 14px;
+
+  /* Tipografía — variables inyectadas por next/font en layout.tsx */
+  --sa-font-display: var(--font-schibsted), system-ui, sans-serif;
+  --sa-font-body: var(--font-instrument), system-ui, sans-serif;
 }
+
+body {
+  background: var(--sa-mist);
+  color: var(--sa-ink);
+  font-family: var(--sa-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(46, 125, 91, 0.18);
+}
+
+/* Quitar spinners de inputs numéricos */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"] { -moz-appearance: textfield; }

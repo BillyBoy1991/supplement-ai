@@ -60,6 +60,7 @@ export interface Recommendation {
   score_breakdown: Record<string, unknown>;
   safety_flags: string[];
   llm_explanation: string | null;
+  citations?: string[]; 
 }
 
 export interface RecommendationsResponse {

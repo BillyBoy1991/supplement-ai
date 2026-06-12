@@ -1,5 +1,8 @@
 "use client";
 
+/* Supplement AI — sustituye a src/app/page.tsx.
+   Misma máquina de fases; añade cabecera con logo y usa el nuevo Onboarding. */
+
 import { useState } from "react";
 import {
   ApiError,
@@ -10,8 +13,10 @@ import {
 } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import AuthScreen from "@/components/AuthScreen";
+import Onboarding from "@/components/Onboarding";
 import QuestionView from "@/components/QuestionView";
 import Results from "@/components/Results";
+import { LogoLockup } from "@/components/Logo";
 
 const TOTAL_QUESTIONS = 15;
 
@@ -56,12 +61,7 @@ export default function Home() {
     }
   };
 
-  if (!token)
-    return (
-      <Shell>
-        <AuthScreen notice={authNotice} />
-      </Shell>
-    );
+  if (!token) return <AuthScreen notice={authNotice} />;
 
   const begin = () =>
     guard(async () => {
@@ -86,25 +86,23 @@ export default function Home() {
     });
 
   return (
-    <Shell>
-      {error && <p className="mb-4 text-sm text-red-600">{error}</p>}
-
-      {phase === "onboarding" && (
-        <div className="space-y-6 text-center">
-          <h1 className="text-3xl font-bold">Bienvenido a Supplement AI</h1>
-          <p className="text-gray-600">
-            Responde 15 preguntas rápidas sobre tus hábitos y objetivos. Generaremos
-            recomendaciones personalizadas y basadas en evidencia.
-          </p>
-          <button
-            onClick={begin}
-            disabled={busy}
-            className="rounded bg-emerald-600 px-6 py-3 font-medium text-white hover:bg-emerald-700 disabled:opacity-50"
-          >
-            Empezar cuestionario
+    <main className="min-h-screen bg-mist">
+      <header className="sticky top-0 z-10 border-b border-line bg-mist/85 backdrop-blur">
+        <div className="mx-auto flex h-16 max-w-3xl items-center justify-between px-6">
+          <LogoLockup size={26} />
+          <button onClick={logout} className="text-sm text-muted transition hover:text-ink">
+            Salir
           </button>
         </div>
+      </header>
+
+      {error && (
+        <p className="mx-auto mt-4 max-w-xl rounded-field border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {error}
+        </p>
       )}
+
+      {phase === "onboarding" && <Onboarding busy={busy} onBegin={begin} />}
 
       {phase === "questionnaire" && question && (
         <QuestionView
@@ -118,10 +116,6 @@ export default function Home() {
       )}
 
       {phase === "results" && result && <Results data={result} onRestart={reset} />}
-    </Shell>
+    </main>
   );
-}
-
-function Shell({ children }: { children: React.ReactNode }) {
-  return <main className="mx-auto min-h-screen max-w-2xl px-4 py-12">{children}</main>;
 }

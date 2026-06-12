@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="56" viewBox="0 0 280 56" fill="none">
+  
+  
+  <g transform="translate(4 4)">
+    <path d="M24 10 L36.12 17 L36.12 31 L24 38 L11.88 31 L11.88 17 Z" stroke="#0e2a23" stroke-width="2.6" stroke-linejoin="round"></path>
+    <circle cx="24" cy="10" r="3.8" fill="#2e7d5b"></circle>
+    <circle cx="11.88" cy="31" r="3.4" fill="#0e2a23"></circle>
+    <circle cx="36.12" cy="31" r="3.4" fill="#0e2a23"></circle>
+  </g>
+  <text x="60" y="37" font-size="26" fill="#14201c">Supplement <tspan fill="#2e7d5b">AI</tspan></text>
+</svg>
